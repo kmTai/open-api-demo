@@ -36,3 +36,5 @@ build/
 ### Backup
 backup/
 MyREADME.md
+docker-compose.yaml_bk
+.gitignore
