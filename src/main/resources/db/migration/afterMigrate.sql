@@ -8,9 +8,9 @@ insert into "customer"("customer_number", "customer_name", "contact_last_name", 
 
 (100, 'Joliyon', 'Schmitt', 'Rue ', '10.22.2535', 1370, '21000.00', 20201), 
 
-(101, 'Marquez Xioa', 'Calor', 'Sar ', '`11.12.2525', 1370, '21000.00', 21805)
+(101, 'Marquez Xioa', 'Calor', 'Sar ', '`11.12.2525', 1370, '21000.00', 21805);
 
-ON CONFLICT ("customer_number") DO NOTHING;
+--ON CONFLICT ("customer_number") DO NOTHING;
 
 /* Data for the table "customerdetail" */
 
@@ -20,9 +20,9 @@ insert into "customerdetail"("customer_number", "address_line_first", "address_l
 
 (100, '51, Avenue 3', NULL, NULL , NULL, '43000', NULL), 
 
-(101, '51, St 5', NULL, NULL , NULL, '44000', 'USA')
+(101, '51, St 5', NULL, NULL , NULL, '44000', 'USA');
 
-ON CONFLICT ("customer_number") DO NOTHING;
+--ON CONFLICT ("customer_number") DO NOTHING;
 
 /*Data for the table `productline` */
 
@@ -40,7 +40,9 @@ insert into "productline"("product_line", "code", "text_description", "html_desc
 
 ('Trucks and Buses', 569331, 'The Truck and Bus models are realistic replicas of buses and specialized trucks produced from the early 1920s to present. The models range in size from 1:12 to 1:50 scale and include numerous limited edition and several out-of-production vehicles. Materials used include tin, diecast and plastic. All models include a certificate of authenticity from their manufacturers and are a perfect ornament for the home and office.', NULL, NULL, '2005-02-25'), 
 
-('Vintage Cars', 223113, 'Our Vintage Car models realistically portray automobiles produced from the early 1900s through the 1940s. Materials used include Bakelite, diecast, plastic and wood. Most of the replicas are in the 1:18 and 1:24 scale sizes, which provide the optimum in detail and accuracy. Prices range from $30.00 up to $180.00 for some special limited edition replicas. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.', NULL, NULL, '2004-04-02') ON CONFLICT ("product_line") DO NOTHING;
+('Vintage Cars', 223113, 'Our Vintage Car models realistically portray automobiles produced from the early 1900s through the 1940s. Materials used include Bakelite, diecast, plastic and wood. Most of the replicas are in the 1:18 and 1:24 scale sizes, which provide the optimum in detail and accuracy. Prices range from $30.00 up to $180.00 for some special limited edition replicas. All models include a certificate of authenticity from their manufacturers and come fully assembled and ready for display in the home or office.', NULL, NULL, '2004-04-02');
+
+-- ON CONFLICT ("product_line") DO NOTHING;
 
 
 
@@ -146,9 +148,9 @@ insert into "product"("product_id", "product_name", "product_line", "code", "pro
 
 (49, '1970 Triumph Spitfire', 'Classic Cars', 599302, '1:18', 'Min Lin Diecast', 'Features include opening and closing doors. Color: White.', 5545, '91.92', '143.62'), 
 
-(50, '1932 Alfa Romeo 8C2300 Spider Sport', 'Vintage Cars', 223113, '1:18', 'Exoto Designs', 'This 1:18 scale precision die cast replica features the 6 front headlights of the original, plus a detailed version of the 142 horsepower straight 8 engine, dual spares and their famous comprehensive dashboard. Color black.', 6553, '43.26', '92.03')
+(50, '1932 Alfa Romeo 8C2300 Spider Sport', 'Vintage Cars', 223113, '1:18', 'Exoto Designs', 'This 1:18 scale precision die cast replica features the 6 front headlights of the original, plus a detailed version of the 142 horsepower straight 8 engine, dual spares and their famous comprehensive dashboard. Color black.', 6553, '43.26', '92.03');
 
- ON CONFLICT ("product_id") DO NOTHING;
+-- ON CONFLICT ("product_id") DO NOTHING;
 
 /* Data for the table "order" */
 
@@ -158,7 +160,9 @@ insert into "order"("order_id", "order_date", "required_date", "shipped_date", "
 
 (10101, '2003-01-09', '2003-01-18', '2003-01-11', 'Shipped', 'Check on availability.', 100, 352),
 
-(10102, '2003-01-10', '2003-01-18', '2003-01-14', 'Shipped', NULL, 101, 138.68) ON CONFLICT ("order_id") DO NOTHING;
+(10102, '2003-01-10', '2003-01-18', '2003-01-14', 'Shipped', NULL, 101, 138.68);
+
+-- ON CONFLICT ("order_id") DO NOTHING;
 
 /* Data for the table "orderdetail" */
 
@@ -176,7 +180,9 @@ insert into "orderdetail"("order_id", "product_id", "quantity_ordered", "price_e
 
 (10102, 19, 39, '95.55', 2), 
 
-(10102, 20, 41, '43.13', 1) ON CONFLICT ("order_id", "product_id") DO NOTHING;
+(10102, 20, 41, '43.13', 1);
+
+-- ON CONFLICT ("order_id", "product_id") DO NOTHING;
 
 
 /* END */
