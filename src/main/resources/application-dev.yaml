@@ -1,0 +1,19 @@
+#dataSource
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/demo_db
+    username: user
+    password: password
+  jpa:
+    show-sql: true
+    hibernate:
+      format_sql=true
+  flyway:
+    clean-on-validation-error: true
+
+# logging
+logging:
+  level:
+    root: DEBUG
+

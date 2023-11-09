@@ -1,19 +1,25 @@
 #dataSource
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/demo_db
-    username: user
-    password: password
+    url: jdbc:h2:mem:demo;mode=postgresql;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+    username: sa
+    password:
   jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQL95Dialect
     show-sql: true
     hibernate:
       format_sql=true
   flyway:
     clean-on-validation-error: true
 
+
+
 # logging
 logging:
   level:
     root: DEBUG
+
+
+server:
+  port: 80
 
