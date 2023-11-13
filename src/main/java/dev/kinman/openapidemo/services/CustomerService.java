@@ -77,4 +77,22 @@ public class CustomerService {
         this.customerdetailRepository.delete(customerdetail);
     }
 
+    public void patchCustomerAddressLineFirst(long customerNumber, String addressLineFirst) {
+        Customerdetail customerdetail = getCustomerdetail(customerNumber);
+        customerdetail.setAddressLineFirst(addressLineFirst);
+        this.customerdetailRepository.save(customerdetail);
+    }
+
+    public void putCustomerAddress(CustomerdetailDto customerdetailDto) {
+
+
+        Optional<Customerdetail> customerdetailFind = customerdetailRepository.findById(customerdetailDto.getCustomerNumber());
+
+        if(customerdetailFind.isPresent()) {
+            Customerdetail customerdetail = this.customerMapper.customerdetailDtoToCustomerdetail1(customerdetailDto);
+            this.customerdetailRepository.save(customerdetail);
+        }else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
 }
