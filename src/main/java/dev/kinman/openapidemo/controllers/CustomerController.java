@@ -27,29 +27,4 @@ public class CustomerController {
         );
     }
 
-
-    //customer address
-    @GetMapping("/address/{customerNumber}")
-    public ResponseEntity<CustomerdetailDto> findCustomerAddressByCustomerNumber(@PathVariable String customerNumber) {
-        //return ResponseEntity.ok(this.customerService.getCustomerdetailDto(Long.parseLong(customerNumber)));
-
-        return new ResponseEntity<>(
-                this.customerService.getCustomerdetailDto(Long.parseLong(customerNumber)),
-                HttpStatus.OK
-        );
-    }
-
-    @PostMapping("/address")
-    public ResponseEntity<Void> createCustomerdetail(@Valid @RequestBody CustomerdetailDto customerdetailDto){
-        this.customerService.createCustomerdetail(customerdetailDto);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-
-    @DeleteMapping("/address/{customerNumber}")
-    public ResponseEntity<Void> deleteCustomerByCustomerNumber(@PathVariable String customerNumber) {
-        this.customerService.deleteCustomer(Long.parseLong(customerNumber));
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
-
 }
